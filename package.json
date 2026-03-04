@@ -1,5 +1,5 @@
 {
-  "name": "morphin",
+  "name": "@morphin/cli",
   "version": "1.0.1",
   "description": "CLI for installing Morphin animated React components",
   "bin": {

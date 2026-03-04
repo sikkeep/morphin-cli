@@ -16,13 +16,13 @@ Morphin provides production-ready motion components built with:
 Install a component or page bundle directly into your project:
 
 ```bash
-npx morphin add beautiful-layout-page-with-pulse-stripes
+npx @morphin/cli add beautiful-layout-page-with-pulse-stripes
 ```
 
 List available components:
 
 ```bash
-npx morphin list
+npx @morphin/cli list
 ```
 
 This will fetch components from:
@@ -38,7 +38,7 @@ https://registry.morphin.dev/registry.json
 Install a full page bundle:
 
 ```bash
-npx morphin add beautiful-layout-page-with-pulse-stripes
+npx @morphin/cli add beautiful-layout-page-with-pulse-stripes
 ```
 
 This installs:
@@ -66,16 +66,16 @@ npm install framer-motion @number-flow/react lucide-react
 # CLI Usage
 
 ```bash
-morphin list
-morphin add <component>
+npx @morphin/cli list
+npx @morphin/cli add <component>
 ```
 
 Advanced options:
 
 ```bash
-morphin list [--registry <url-or-path>]
+npx @morphin/cli list [--registry <url-or-path>]
 
-morphin add <component...>
+npx @morphin/cli add <component...>
   [--registry <url-or-path>]
   [--cwd <path>]
   [--dry-run]
@@ -91,19 +91,19 @@ morphin add <component...>
 Preview installation:
 
 ```bash
-morphin add beautiful-layout-page-with-pulse-stripes --dry-run
+npx @morphin/cli add beautiful-layout-page-with-pulse-stripes --dry-run
 ```
 
 Install and auto-install dependencies:
 
 ```bash
-morphin add beautiful-layout-page-with-pulse-stripes --install
+npx @morphin/cli add beautiful-layout-page-with-pulse-stripes --install
 ```
 
 Use custom registry:
 
 ```bash
-morphin list --registry ./registry/registry.json
+npx @morphin/cli list --registry ./registry/registry.json
 ```
 
 ---
