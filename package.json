@@ -1,7 +1,9 @@
 {
   "name": "morphin",
-  "version": "0.0.1",
+  "version": "1.0.1",
+  "description": "CLI for installing Morphin animated React components",
   "bin": {
     "morphin": "./bin/morphin.js"
-  }
+  },
+  "license": "MIT"
 }
