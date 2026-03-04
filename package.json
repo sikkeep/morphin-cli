@@ -1,0 +1,7 @@
+{
+  "name": "morphin",
+  "version": "0.0.1",
+  "bin": {
+    "morphin": "./bin/morphin.js"
+  }
+}
