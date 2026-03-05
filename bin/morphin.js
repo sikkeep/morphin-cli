@@ -12,7 +12,7 @@ function printHelp() {
 
 Usage:
   morphin list [--registry <url-or-path>]
-  morphin add <component...> [--registry <url-or-path>] [--cwd <path>] [--dry-run] [--overwrite] [--install] [--pm <npm|pnpm|yarn|bun>]
+  morphin add <component...> [--registry <url-or-path>] [--cwd <path>] [--dry-run] [--overwrite] [--no-install] [--pm <npm|pnpm|yarn|bun>]
 
 Examples:
   morphin list
@@ -51,7 +51,7 @@ function parseArgs(argv) {
       continue
     }
 
-    if (arg === '--dry-run' || arg === '--overwrite' || arg === '--install') {
+    if (arg === '--dry-run' || arg === '--overwrite' || arg === '--no-install') {
       flags[arg.slice(2)] = true
       continue
     }
@@ -288,11 +288,7 @@ async function resolveFileContent(registryCtx, sourcePath) {
 }
 
 function resolveDestinationRelativePath(targetPath) {
-  const normalized = normalizeRelativePath(targetPath)
-  if (normalized === 'src' || normalized.startsWith('src/')) {
-    return normalized
-  }
-  return path.posix.join('src', normalized)
+  return normalizeRelativePath(targetPath)
 }
 
 function detectPackageManager(cwd) {
@@ -468,7 +464,7 @@ async function run(argv) {
         cwd,
         dryRun: Boolean(flags['dry-run']),
         overwrite: Boolean(flags.overwrite),
-        install: Boolean(flags.install),
+        install: !flags['no-install'],
         pm: flags.pm,
       })
       return
