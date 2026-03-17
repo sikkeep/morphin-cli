@@ -9,7 +9,7 @@ const http = require("node:http");
 const FREE_REGISTRY =
   "https://raw.githubusercontent.com/sikkeep/morphin-registry/main/registry.json";
 const PRO_REGISTRY =
-  "https://cdn.morphin.dev/camellia/components/pro/registry.json";
+  "https://morphin-pro.mcafeeplay.workers.dev/camellia/components/pro/registry.json";
 const DEFAULT_REGISTRY = FREE_REGISTRY;
 const DEFAULT_SITE_URL = "https://morphin.dev";
 const CONFIG_DIR = ".morphin";
@@ -689,7 +689,6 @@ function openBrowser(url) {
   return result.status === 0 && !result.error;
 }
 
-
 async function loginCommand(options = {}) {
   const siteUrl = getSiteUrl();
   let token = options.token;
@@ -725,9 +724,7 @@ async function loginCommand(options = {}) {
 
       let pollRes;
       try {
-        pollRes = await requestText(
-          `${siteUrl}/api/cli/session/${sessionId}`,
-        );
+        pollRes = await requestText(`${siteUrl}/api/cli/session/${sessionId}`);
       } catch {
         continue;
       }
