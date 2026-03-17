@@ -25,6 +25,12 @@ List available components:
 npx @morphin/cli list
 ```
 
+Authenticate for Pro-only components:
+
+```bash
+npx @morphin/cli login
+```
+
 This will fetch components from:
 
 ```
@@ -68,6 +74,9 @@ npm install framer-motion @number-flow/react lucide-react
 ```bash
 npx @morphin/cli list
 npx @morphin/cli add <component>
+npx @morphin/cli login
+npx @morphin/cli logout
+npx @morphin/cli whoami
 ```
 
 Advanced options:
@@ -80,8 +89,12 @@ npx @morphin/cli add <component...>
   [--cwd <path>]
   [--dry-run]
   [--overwrite]
-  [--install]
+  [--no-install]
   [--pm <npm|pnpm|yarn|bun>]
+
+npx @morphin/cli login
+  [--token <token>]
+  [--no-browser]
 ```
 
 ---
@@ -104,6 +117,12 @@ Use custom registry:
 
 ```bash
 npx @morphin/cli list --registry ./registry/registry.json
+```
+
+Use an existing token without opening a browser:
+
+```bash
+npx @morphin/cli login --token <token> --no-browser
 ```
 
 ---
@@ -155,6 +174,10 @@ Each item manifest describes:
 * Installed files are written under `src/` by default.
 * Existing files are skipped unless `--overwrite` is used.
 * `--dry-run` previews file writes without modifying the filesystem.
+* CLI tokens are stored in `~/.morphin/config.json`.
+* `MORPHIN_TOKEN` can be used to authenticate without writing a local config file.
+* Remote registry requests automatically include `Authorization: Bearer <token>` when a token is available.
+* Pro-only components return an upgrade prompt that links to `https://morphin.dev/pricing`.
 * `registryDependencies` are printed as:
 
 ```
