@@ -8,8 +8,7 @@ const http = require("node:http");
 
 const FREE_REGISTRY =
   "https://raw.githubusercontent.com/sikkeep/morphin-registry/main/registry.json";
-const PRO_REGISTRY =
-  "https://morphin-pro.mcafeeplay.workers.dev/camellia/components/pro/registry.json";
+const PRO_REGISTRY = "https://morphin.dev/components/pro/registry.json";
 const DEFAULT_REGISTRY = FREE_REGISTRY;
 const DEFAULT_SITE_URL = "https://morphin.dev";
 const CONFIG_DIR = ".morphin";
